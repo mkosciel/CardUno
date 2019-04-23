@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<!--
+ * author: Łukasz Wnęk
+ -->
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#mouseMoved" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="playerScreen.controller.GameTableController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="600.0">
+         <center>
+            <AnchorPane fx:id="CenterField" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #006600;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="cardOnTable" fitHeight="100.0" fitWidth="72.0" layoutX="264.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="messageLabel" layoutX="14.0" layoutY="369.0" />
+               </children></AnchorPane>
+         </center>
+         <top>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="100.0" prefWidth="100.0" />
+                  <AnchorPane fx:id="PlayerUpDeck" prefHeight="100.0" prefWidth="400.0" />
+                  <Pane prefHeight="100.0" prefWidth="100.0" />
+               </children>
+            </HBox>
+         </top>
+         <bottom>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <Text fx:id="CardLabel" layoutX="3.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Button fx:id="reload" layoutX="24.0" layoutY="38.0" mnemonicParsing="false" onAction="#reloadButton" text="reload" visible="false" />
+                     </children></Pane>
+                  <AnchorPane fx:id="PlayerBottomDeck" prefHeight="100.0" prefWidth="400.0" />
+                  <Pane prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <Button fx:id="drawButton" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onAction="#drawButtonOnAction" prefHeight="70.0" prefWidth="70.0" text="Draw" />
+                     </children></Pane>
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
