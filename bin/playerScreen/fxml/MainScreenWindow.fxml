@@ -14,10 +14,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<!--
- * author: Łukasz Wnęk
- -->
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="playerScreen.controller.MainScreenController">
    <children>
       <VBox prefHeight="400.0" prefWidth="600.0">
