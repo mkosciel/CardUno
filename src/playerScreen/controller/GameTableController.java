@@ -24,15 +24,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-/**
- * @author £ukasz Wnêk
- * @author Micha³ Koœcielak
- */
 
-
-/**
- * @author £ukasz Wnêk
- */
 public class GameTableController {
 
 	private static final Double cardWidth = 72d;
@@ -99,7 +91,7 @@ public class GameTableController {
 		sync();
 	}
 
-	// dodanie karty gracza + nadanie jej w³aœciwoœci
+	// dodanie karty gracza + nadanie jej wÂ³aÅ“ciwoÅ“ci
 	private void addCardToBottomDeck(Card card) {
 		Image cardImg = cardToImage(card);
 		ImageView cardView = new ImageView();
@@ -118,10 +110,8 @@ public class GameTableController {
 		reloadBottomCardView();
 	}
 	
-	/**
-	 * @author Micha³ Koœcielak
-	 */
-	// próba zagrania karty z jednoczesn¹ prób¹ sprawdzenia po³¹czenia
+	
+	// prÃ³ba zagrania karty z jednoczesnÂ¹ prÃ³bÂ¹ sprawdzenia poÂ³Â¹czenia
 	private boolean canPlayCard(Card card) {
 
 		System.out.println("trying to play");
@@ -146,10 +136,8 @@ public class GameTableController {
 		return false;
 	}
 
-	/**
-	 * @author £ukasz Wnêk
-	 */
-	// usuniêcie karty z do³u
+
+	// usuniÃªcie karty z doÂ³u
 	public void removeCardFromBottomDeck(int id) {
 		try {
 			PlayerBottomDeck.getChildren().remove(id);
@@ -160,7 +148,7 @@ public class GameTableController {
 		}
 	}
 
-	// dodanie karty graczowi górnemu
+	// dodanie karty graczowi gÃ³rnemu
 	private void addCardToUpDeck() {
 		Image img = new Image(getClass().getResourceAsStream("cards/unoUp.png"));
 		ImageView cardView = new ImageView();
@@ -169,7 +157,7 @@ public class GameTableController {
 		reloadUpCardView();
 	}
 
-	// zabranie karty graczowi górnemu
+	// zabranie karty graczowi gÃ³rnemu
 	public void removeCardFromUpDeck(int id) {
 		try {
 			PlayerUpDeck.getChildren().remove(id);
@@ -207,7 +195,7 @@ public class GameTableController {
 		actualCard = card;
 	}
 
-	// odœwie¿enie widoku kart (mechanika nak³adania)
+	// odÅ“wieÂ¿enie widoku kart (mechanika nakÂ³adania)
 	private void reloadBottomCardView() {
 		if (PlayerBottomDeck.getChildren().size() == 1) {
 			AnchorPane.setRightAnchor(PlayerBottomDeck.getChildren().get(0), 0d);
@@ -220,7 +208,7 @@ public class GameTableController {
 		}
 	}
 
-	// odœwie¿enie widoku kart (mechanika nak³adania)
+	// odÅ“wieÂ¿enie widoku kart (mechanika nakÂ³adania)
 	private void reloadUpCardView() {
 		if (PlayerUpDeck.getChildren().size() == 1) {
 			AnchorPane.setRightAnchor(PlayerUpDeck.getChildren().get(0), 0d);
@@ -233,10 +221,8 @@ public class GameTableController {
 		}
 	}
 
-	/**
-	 * @author Micha³ Koœcielak
-	 */
-	// ustawienie strumieni wejœcia/wyjœcia
+	
+	// ustawienie strumieni wejÅ“cia/wyjÅ“cia
 	public void setIO(BufferedReader in, PrintWriter out, BufferedReader inGate, PrintWriter outGate,
 			BufferedReader inRespond, PrintWriter outRespond, String name, Stage stage) {
 		this.in = in;
@@ -253,20 +239,17 @@ public class GameTableController {
 		rootStage = stage;
 	}
 
-	// w³¹czenie po³¹czenia
+	// wÂ³Â¹czenie poÂ³Â¹czenia
 	public void openConnection() {
 		isConnectionOpenned = true;
 	}
 
-	// wy³¹czenie po³czenia
+	// wyÂ³Â¹czenie poÂ³czenia
 	public void closeConnection() {
 		isConnectionOpenned = false;
 	}
 
-	/**
-	 * @author £ukasz Wnêk
-	 */
-	// wynchronizacja sto³u
+	// synchronizacja stoÂ³u
 	private void sync() {
 
 		if (hasToBeClosed)
@@ -296,7 +279,7 @@ public class GameTableController {
 		hasToBeClosed = true;
 	}
 
-	// ustawienie karty na górze sto³u
+	// ustawienie karty na gÃ³rze stoÂ³u
 	private void setTopCard(Card card) {
 		actualCard = card;
 	}
@@ -312,16 +295,16 @@ public class GameTableController {
 	}
 
 	/**
-	 * @author Micha³ Koœcielak
+	 * @author MichaÂ³ KoÅ“cielak
 	 */
-	// klasa w¹tku zajmuj¹cego siê obs³ug¹ komend z silnika
+	// klasa wÂ¹tku zajmujÂ¹cego siÃª obsÂ³ugÂ¹ komend z silnika
 	class Commands extends Thread {
 		BufferedReader in;
 		PrintWriter out;
 		GameTableController cntl;
 		String name;
 
-		// ustawienie strumieni wejœcia/wyjœcia
+		// ustawienie strumieni wejÅ“cia/wyjÅ“cia
 		Commands(BufferedReader in, PrintWriter out, GameTableController cntl, String name) {
 			this.in = in;
 			this.out = out;
@@ -329,7 +312,7 @@ public class GameTableController {
 			this.name = name;
 		}
 
-		// uruchomienie w¹tku
+		// uruchomienie wÂ¹tku
 		public void run() {
 			try {
 				while (true) {
@@ -370,7 +353,7 @@ public class GameTableController {
 					}
 				}
 			} catch (Exception e) {
-				System.out.println("B³¹d komend: " + e.getMessage());
+				System.out.println("BÂ³Â¹d komend: " + e.getMessage());
 				setToCloseTheWindow();
 			}
 			System.out.println("Thread com end");
