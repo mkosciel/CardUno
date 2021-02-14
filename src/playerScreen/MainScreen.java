@@ -8,10 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import playerScreen.controller.MainScreenController;
 
-/**
- * @author £ukasz Wnêk
- *
- */
+
 public class MainScreen extends Application{
 
 	/**
