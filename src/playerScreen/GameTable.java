@@ -13,16 +13,13 @@ import playerScreen.controller.GameTableController;
 
 import javax.swing.*;
 
-/**
- * @author £ukasz Wnêk
- *
- */
+
 public class GameTable {
 
 	private Stage rootStage;
 	private Stage stage;
 
-	// uruchomienie sto³u
+	// uruchomienie stoÂ³u
 	public void show(Stage rootStage, BufferedReader in, PrintWriter out, BufferedReader inGate, PrintWriter outGate, BufferedReader inRespond, PrintWriter outRespond, String name) {
 		this.rootStage = rootStage;
 		try {
@@ -39,11 +36,11 @@ public class GameTable {
 			stage.sizeToScene();
 			stage.show();
 
-			// utworzenie kontrolera sto³u gry
+			// utworzenie kontrolera stoÂ³u gry
 			GameTableController cntl = loader.getController();
 			cntl.setIO(in, out, inGate, outGate, inRespond, outRespond, name, stage);
 
-			// w¹tek sprawdzaj¹cy mo¿liwoœæ wysy³ania komend
+			// wÂ¹tek sprawdzajÂ¹cy moÂ¿liwoÅ“Ã¦ wysyÂ³ania komend
 			Checker connectionChecking = new Checker(inGate, outGate, cntl);
 			connectionChecking.start();
 
@@ -86,7 +83,7 @@ public class GameTable {
 				try {
 					throw e;
 				} catch (IOException e1) {
-					System.out.println("B³¹d wejœcia/wyjœcia: " + e.getMessage());
+					System.out.println("BÂ³Â¹d wejÅ“cia/wyjÅ“cia: " + e.getMessage());
 				}
 			}
 			System.out.println("Thread end");
