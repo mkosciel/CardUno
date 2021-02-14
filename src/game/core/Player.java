@@ -6,13 +6,10 @@ import java.util.ArrayList;
 /*
 * klasa gracza
 * */
-/**
- * @author Paulina Staniszewska-Tudruj
- *
- */
+
 public class Player {
     private String playerName; // nazwa gracza
-    private ArrayList<Card> deck = new ArrayList<>(); // karty na rêku gracza
+    private ArrayList<Card> deck = new ArrayList<>(); // karty na rÄ™ku gracza
 
     // konstruktor bezparametrowy
     public Player(){
@@ -57,7 +54,7 @@ public class Player {
         System.out.println("-----------------\n");
     }
 
-    // usuniêcie karty
+    // usuniÄ™cie karty
     public void removeCard(Integer cardId){
         deck.remove(deck.get(cardId));
     }
