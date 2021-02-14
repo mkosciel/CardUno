@@ -5,10 +5,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * @author Paulina Staniszewska-Tudruj
- *
- */
 public class Game {
 
 	/**
@@ -42,7 +38,7 @@ public class Game {
     private Integer actualColor; // aktualny numer koloru
     private Integer cardsToDraw = 0; // liczba kart do pobrania przez nastepnego gracza
 
-	// wejœcia / wyjœcia
+	// wejÅ“cia / wyjÅ“cia
 	private BufferedReader[] inputFromP;
 	private BufferedReader[] inputFromPGate;
 	private BufferedReader[] inputFromPRespond;
@@ -63,7 +59,7 @@ public class Game {
         stack.add(cardToAdd);
     }
 
-    // konstruktor gry przyjmujacy wejœcia/wyjœcia
+    // konstruktor gry przyjmujacy wejÅ“cia/wyjÅ“cia
     public Game(BufferedReader[] inP, PrintWriter[] outP, BufferedReader[] inPG, PrintWriter[] outPG, BufferedReader[] inPR, PrintWriter[] outPR) throws Exception {
         
     	inputFromP = inP;
@@ -89,7 +85,7 @@ public class Game {
             throw new Exception("Bad player count!");
         }
 
-        // pobranie nicków graczy
+        // pobranie nickÃ³w graczy
         for(int i = 0; i < playerCount; i++){
             System.out.print("Player number " + (i + 1) + " name: ");
 
@@ -113,28 +109,28 @@ public class Game {
         System.out.println("The game is ready!");
     }
 
-    // wiadomoœæ powitalna
+    // wiadomoÅ“Ã¦ powitalna
     private void printInitMessage() {
         System.out.println("Hello in UNO!");
         System.out.print("Players: ");
     }
 
-    // ustawienie nastêpnego gracza
+    // ustawienie nastÃªpnego gracza
     private void nextPlayer(){
         actualPlayer = (actualPlayer + directory + playerCount) % playerCount;
     }
 
-    // odwrócenie kierunku gry
+    // odwrÃ³cenie kierunku gry
     private void reverse(){
         if(directory == 1) directory = playerCount - 1;
         else directory = 1;
     }
 
-    // rozpoczêcie gry
+    // rozpoczÃªcie gry
     public void play(){
     	
     	try {
-    		// pobranie pocz¹tkowej karty
+    		// pobranie poczÂ¹tkowej karty
 	        Card startingCard = takeFromStack();
 	
 	        while(!startingCard.isNormalCard()){
@@ -150,22 +146,22 @@ public class Game {
 	        outputToP[0].println("STARTING " + actualNumber + " " + actualColor);
 	        outputToP[1].println("STARTING " + actualNumber + " " + actualColor);
 
-	        // rozpoczêcie rozgrywki
+	        // rozpoczÃªcie rozgrywki
 	        while(true) {
 
 	        	// dobranie kart
-	            while(cardsToDraw --> 0){           //operator d¹¿¹cy
+	            while(cardsToDraw --> 0){           //operator dÂ¹Â¿Â¹cy
 					addCardToActualPlayerFromStackAndReloadOpponent();
 				}
 
-	            // wyœwietlanie wiadomoœci
+	            // wyÅ“wietlanie wiadomoÅ“ci
 	            System.out.println("Player " + players.get(actualPlayer).getPlayerName() + " (" + (actualPlayer + 1) + ")" + " turn!");
 	            if(actualNumber == null) System.out.println("Actual card: - " + Card.getColorName(actualColor));
 	            else System.out.println("Actual card: " + Card.getCardName(actualNumber) + " " + Card.getColorName(actualColor));
 	            System.out.println("What to do?\ntype in \"play card_number\" or \"draw\"");
 	            players.get(actualPlayer).printPlayersDeck();
 
-	            // przyjêcie polecenia od gracza (otworzenie po³¹czenia, przyjêcie komendy, zamkniêcie po³¹czenia)
+	            // przyjÃªcie polecenia od gracza (otworzenie poÂ³Â¹czenia, przyjÃªcie komendy, zamkniÃªcie poÂ³Â¹czenia)
 	            outputToPGate[actualPlayer].println("OPEN");
 	            String playersChoice = inputFromP[actualPlayer].readLine();
 	            System.out.println(playersChoice);
@@ -185,10 +181,10 @@ public class Game {
 	                    continue;
 	                }
 
-	                // przyjêcie karty
+	                // przyjÃªcie karty
 	                outputToPRespond[actualPlayer].println("OK");
 
-	                // aktualizacja sto³u
+	                // aktualizacja stoÂ³u
 	                outputToP[(actualPlayer + 1) % 2].println("STARTING " + chosenCard.getNumber() + " " + chosenCard.getColor());
 
 	                // aktulizacja graczy
@@ -207,12 +203,12 @@ public class Game {
 	                    break;
 	                }
 
-	                // powrót karty do stosu
+	                // powrÃ³t karty do stosu
 	                addToStack(chosenCard);
 
 	                // wykonanie akcji karty
 	                if(chosenCard.getAction() == 5 || chosenCard.getAction() == 6){
-	                	// jeszcze nie dzia³a
+	                	// jeszcze nie dziaÂ³a
 	                    System.out.println("Change color to: ");
 	                    int id = 1;
 	                    for(String color : Card.ColorNames){
@@ -228,7 +224,7 @@ public class Game {
 	                    }
 	                } else {
 	                    if (chosenCard.getAction() == 2) {
-	                        // pominiêcie gracza
+	                        // pominiÃªcie gracza
 	                    	nextPlayer();
 	                    } else if (chosenCard.getAction() == 3) {
 	                    	// zmiana kierunku gry
@@ -241,7 +237,7 @@ public class Game {
 	                    actualColor = chosenCard.getColor();
 	                }
 	            } else {
-	            	// b³êdna komenda
+	            	// bÂ³Ãªdna komenda
 	                System.out.println("Bad command!");
 	                continue;
 	            }
@@ -262,7 +258,7 @@ public class Game {
 		outputToP[(actualPlayer + 1) % playerCount].println("ADD_OPP");
 	}
 
-	// sprawdzenie, czy mo¿na zagraæ kartê
+	// sprawdzenie, czy moÂ¿na zagraÃ¦ kartÃª
 	private boolean canPlayCard(Card card) {
         if(Card.NotColored.contains(card.getNumber())){
             return true;
