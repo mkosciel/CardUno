@@ -7,7 +7,7 @@ package game.core;
  * 0 - 9     Number      ""          1       "Normalna karta. Mo?e by? po?o?ona na takim samym kolorze lub numerze."
  * 10        Skip        ""          2       "Mo?e by? po?o?ona na takim samym kolorze lub numerze. Pomija nast?pnego gracza."
  * 11        Reverse     ""          3       "Odwraca kierunek ruchu gry."
- * 12        DrawTwo     ""          4       "Obliguje nast?pnego gracza do dobrania dwóch kart."
+ * 12        DrawTwo     ""          4       "Obliguje nast?pnego gracza do dobrania dwÃ³ch kart."
  *
  * 13        Wild        ""          5       "Mo?e zosta? po?o?ona na dowoln? kart?. Zmienia kolor na stole."
  * 14        WildDraw    ""          6       "Mo?e zosta? po?o?ona na dowoln? kart?. Zmienia kolor na stole. Dodatkowo obliguje nast?pnego gracza do dobrania czterech kart."
@@ -15,14 +15,10 @@ package game.core;
 
 import java.util.ArrayList;
 
-/**
- * @author Paulina Staniszewska-Tudruj
- *	
- */
 public class Card {
 
 	/**
-	 * Kolory kart. Kolejno: kolor bazowy, czerwony, zielony, niebieski i ?ó?ty.
+	 * Kolory kart. Kolejno: kolor bazowy, czerwony, zielony, niebieski i ?Ã³?ty.
 	 * Zapisy liczbowe w celu szybszego dost?pu
 	 */
 	final static public Integer ColorBase = 2010;
@@ -39,13 +35,13 @@ public class Card {
 			add(13);
 			add(14);
 		}
-	}; // lista kart bez kolorów
+	}; // lista kart bez kolorÃ³w
 	
 	private final static Integer NumberOfCards = 14; // liczba kart w sumie
 
 	private Integer number; // numer karty z tabelki
 	private Integer color; // kolor karty
-	private Integer action; // numer akcji wykonywanej przez kartê; akcje przypisane s¹ do numerów kart
+	private Integer action; // numer akcji wykonywanej przez kartÃª; akcje przypisane sÂ¹ do numerÃ³w kart
 
 	/**
 	 * Konstruktor karty
@@ -67,7 +63,7 @@ public class Card {
 	}
 
 	/**
-	 * Krótszy konstruktor karty
+	 * KrÃ³tszy konstruktor karty
 	 * 
 	 * @param cardId numer karty
 	 */
@@ -78,7 +74,7 @@ public class Card {
 	/**
 	 * @param cardId numer karty
 	 *
-	 * @return numer akcji karty zgody z tabelk¹
+	 * @return numer akcji karty zgody z tabelkÂ¹
 	 */
 	private Integer readActionForNumber(Integer cardId) throws Exception {
 		if (cardId < 0 || cardId > NumberOfCards) {
